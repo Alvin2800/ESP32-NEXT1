@@ -7,18 +7,15 @@ humidity = 0
 
 @app.route("/data")
 def data():
-    try:
-        temp = float(request.args.get("temp", 0))
-        hum = float(request.args.get("hum", 0))
+    global temperature, humidity
 
-        print("Temp:", temp)
-        print("Hum:", hum)
+    temperature = float(request.args.get("temp", 0))
+    humidity = float(request.args.get("hum", 0))
 
-        return "OK", 200
+    print("Température :", temperature)
+    print("Humidité :", humidity)
 
-    except Exception as e:
-        print("Erreur:", e)
-        return "Erreur", 500
+    return "OK", 200
 
 @app.route("/temperature")
 def get_temperature():
