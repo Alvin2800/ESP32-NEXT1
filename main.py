@@ -9,8 +9,8 @@ humidity = 0
 def data():
     global temperature, humidity
 
-    temperature = float(request.args.get("temp", 0))
-    humidity = float(request.args.get("hum", 0))
+    temperature = request.args.get("temp", 0)
+    humidity = request.args.get("hum", 0)
 
     print("Température :", temperature)
     print("Humidité :", humidity)
